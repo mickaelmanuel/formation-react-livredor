@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Api } from "../Api";
 import { Input } from "./Input";
 import { Button } from "./Button";
-import axios from "axios";
+
 export class Home extends React.Component {
   state = {
     isLoading: false,
@@ -76,6 +76,7 @@ export class Home extends React.Component {
                         async response => {
                           console.log(response.data);
                           await this.loadMessages();
+                          this.setState({ message: "" });
                         },
                         error => {
                           console.log(error);
